@@ -1,13 +1,14 @@
 
 package proyecto_g6;
 
-public class Bus implements ISistemaEstacion {
+public abstract class Bus implements ISistemaEstacion {
 
-    private String placa;
-    private int numero;
-    private String marca;
-    private String conductor;
-    private int pasajeros;
+    protected  String placa;
+    protected  int numero;
+    protected String marca;
+    protected  String conductor;
+    protected  int pasajeros;
+    protected int capacidadMaxima;
     
     public Bus(String placa, int numero, String marca, String conductor, int pasajeros) {
         this.placa = placa;
@@ -57,17 +58,7 @@ public class Bus implements ISistemaEstacion {
         this.pasajeros = pasajeros;
     }
 
-    @Override
-    public String LimiteDePersonas() {
-        int personas = 60;
-        if (pasajeros > personas){
-            return "Se ha excedido la cantidad de pasajeros, enviando bus de apoyo";
-        
-        }
-        else{
-            return "El bus se encuentra trabajando en perfecto estado";
-        }
-    }
+    
     
     @Override
     public String toString(){

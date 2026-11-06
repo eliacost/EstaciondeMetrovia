@@ -1,9 +1,10 @@
 
 package proyecto_g6;
+
 import java.util.Scanner;
+
 public class Main {
 
- 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Estacion estacionPrincipal = new Estacion("EST-CENTRAL", "Municipio de Guayaquil", 200);
@@ -45,7 +46,20 @@ public class Main {
 
                     System.out.print("Ingrese la cantidad de pasajeros actuales: ");
                     int pasajeros = sc.nextInt();
-                    Bus nuevoBus = new Bus(placa, numero, marca, conductor, pasajeros);
+                    System.out.println("Elija el tipo de Bus a registrar(ingrese el número de la opción)");
+	                System.out.println("1. Bus Articulado \n2. Bus Alimentador");
+                    int tipoBus = sc.nextInt();
+                    sc.nextLine();
+                    Bus nuevoBus=null;
+                    if(tipoBus == 1){
+                        nuevoBus=new BusArticulado(placa,numero,marca,conductor,pasajeros);
+                        estacionPrincipal.agregarBus(nuevoBus);
+                    }else if (tipoBus==2){
+                        nuevoBus=new BusAlimentador(placa,numero,marca,conductor,pasajeros);
+                        estacionPrincipal.agregarBus(nuevoBus);
+                    }else{
+                        System.out.println("Ingrese una opción correcta");
+                    }
     
                     System.out.println("");
                     System.out.println("Bus registrado con éxito!");
@@ -136,5 +150,5 @@ public class Main {
 
 
     }
-    
+
 }

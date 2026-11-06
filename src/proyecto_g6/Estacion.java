@@ -1,17 +1,23 @@
 
 package proyecto_g6;
 
+import java.util.ArrayList;
+
 public class Estacion implements ISistemaEstacion{
     private String codigoIdentificacion;
     private String dueno;
     private int ciudadanos;
+    private ArrayList<Bus> listaBuses=new ArrayList<>();
 
     public Estacion(String codigoIdentificacion, String dueno, int ciudadanos) {
         this.codigoIdentificacion = codigoIdentificacion;
         this.dueno = dueno;
         this.ciudadanos = ciudadanos;
     }
-
+ 
+    public void agregarBus( Bus bus) {
+        listaBuses.add(bus);
+    }
     public String getCodigoIdentificacion() {
         return codigoIdentificacion;
     }
@@ -51,9 +57,8 @@ public class Estacion implements ISistemaEstacion{
 
     }
     
-    public void abordarBus(Bus bus) {
-    int capacidadMaximaBus = 60; 
-    int espacioDisponible = capacidadMaximaBus - bus.getPasajeros();
+    public void abordarBus(Bus bus) { 
+    int espacioDisponible = bus.capacidadMaxima - bus.getPasajeros();
 
     if (espacioDisponible <= 0) {
         System.out.println("El bus: " + bus.getNumero() + " está lleno. Ningún ciudadano del andén puede abordar.");
