@@ -1,5 +1,6 @@
 
-package proyecto_g6;
+package javaapplication22;
+
 
 import java.util.ArrayList;
 
@@ -7,12 +8,17 @@ public class Estacion implements ISistemaEstacion{
     private String codigoIdentificacion;
     private String dueno;
     private int ciudadanos;
+<<<<<<< HEAD
     private ArrayList<Bus> listaBuses=new ArrayList<>();
+=======
+    private int capacidadMaxima;
+>>>>>>> e4e5ac17f61da2bbb107c0ac15972d0a337b8e02
 
-    public Estacion(String codigoIdentificacion, String dueno, int ciudadanos) {
+    public Estacion(String codigoIdentificacion, String dueno, int ciudadanos, int capacidadMaxima) {
         this.codigoIdentificacion = codigoIdentificacion;
         this.dueno = dueno;
         this.ciudadanos = ciudadanos;
+        this.capacidadMaxima = capacidadMaxima;
     }
  
     public void agregarBus( Bus bus) {
@@ -30,6 +36,10 @@ public class Estacion implements ISistemaEstacion{
         return ciudadanos;
     }
 
+    public int getCapacidadMaxima() {
+        return capacidadMaxima;
+    }
+
     public void setCodigoIdentificacion(String codigoIdentificacion) {
         this.codigoIdentificacion = codigoIdentificacion;
     }
@@ -42,20 +52,25 @@ public class Estacion implements ISistemaEstacion{
         this.ciudadanos = ciudadanos;
     }
 
+    public void setCapacidadMaxima(int capacidadMaxima) {
+        this.capacidadMaxima = capacidadMaxima;
+    }
+
+
 
     @Override
     public String LimiteDePersonas() {
-        int personas = 102;
-        if (ciudadanos > personas){
+        if (ciudadanos > capacidadMaxima){
             return "Se ha excedido la cantidad de pasajeros, enviando bus de apoyo";
 
         }
         else{
-            return "La estacion se encuentra trabajando en perfecto estado";
+            return "El bus se encuentra trabajando en perfecto estado";
 
         }
 
     }
+<<<<<<< HEAD
     
     public void abordarBus(Bus bus) { 
     int espacioDisponible = bus.capacidadMaxima - bus.getPasajeros();
@@ -90,12 +105,15 @@ public class Estacion implements ISistemaEstacion{
     System.out.println("Ciudadanos restantes en la estación: " + getCiudadanos());
     System.out.println("");
 }
+=======
+>>>>>>> e4e5ac17f61da2bbb107c0ac15972d0a337b8e02
 
     @Override
     public String toString(){
         return "Estacion [Identificacion: " + codigoIdentificacion + 
                ", Dueno del local: " + dueno + 
                ", Cantidad de ciudadanos " + ciudadanos + 
+               ", Capacidad de ciudadnos: " + capacidadMaxima +
                ", Estado de la estacion " + LimiteDePersonas() + "]";
     }
   
