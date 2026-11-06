@@ -1,6 +1,4 @@
-
-package javaapplication22;
-
+package proyecto_g6;
 
 public class Estacion implements ISistemaEstacion{
     private String codigoIdentificacion;
