@@ -1,5 +1,5 @@
 
-package javaapplication22;
+package proyecto_g6;
 
 public class BusArticulado extends Bus implements ISistemaEstacion{
 
