@@ -1,5 +1,5 @@
 
-package javaapplication22;
+package proyecto_g6;
 
 abstract class Bus implements ISistemaEstacion{
     private String placa;
