@@ -9,6 +9,7 @@ public class Estacion implements ISistemaEstacion{
     private int ciudadanos;
     private ArrayList<Bus> listaBuses=new ArrayList<>();
     private int capacidadMaxima;
+    private double recaudacionTotal = 0.0;
 
     public Estacion(String codigoIdentificacion, String dueno, int ciudadanos, int capacidadMaxima) {
         this.codigoIdentificacion = codigoIdentificacion;
@@ -17,11 +18,13 @@ public class Estacion implements ISistemaEstacion{
         this.capacidadMaxima = capacidadMaxima;
     }
  
-    public void agregarBus( Bus bus) {
-        listaBuses.add(bus);
-    }
+    
     public String getCodigoIdentificacion() {
         return codigoIdentificacion;
+    }
+    
+    public double getRecaudacionTotal() {
+    return recaudacionTotal;
     }
 
     public String getDueno() {
@@ -52,8 +55,14 @@ public class Estacion implements ISistemaEstacion{
         this.capacidadMaxima = capacidadMaxima;
     }
 
+    public void agregarBus( Bus bus) {
+        listaBuses.add(bus);
+    }
 
-
+    public void sumarRecaudacion(double monto) {
+    this.recaudacionTotal += monto;
+    }
+    
     @Override
     public String LimiteDePersonas() {
         if (ciudadanos > capacidadMaxima){

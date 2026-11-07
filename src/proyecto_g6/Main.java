@@ -117,10 +117,15 @@ public class Main {
                     }
                     
                     if (usuario != null) {
+			double tarifaCobrada = usuario.calcularTarifa();
+                        estacionPrincipal.sumarRecaudacion(tarifaCobrada);
+
                         int ciudadanosActuales = estacionPrincipal.getCiudadanos();
                         estacionPrincipal.setCiudadanos(ciudadanosActuales + 1);
+
                         System.out.println("Pasajero registrado con exito!");
-                        String estadoAforo = estacionPrincipal.LimiteDePersonas();
+                        
+			String estadoAforo = estacionPrincipal.LimiteDePersonas();
                         if (estadoAforo.contains("excedido")) {
                             System.out.println("");
                             System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
@@ -142,11 +147,28 @@ public class Main {
                     break;
                     
                 case 4:
+		    System.out.println("");
+                    System.out.println("--- Listado actual de buses registrados ---");
+                    System.out.println("Estado general de la estación:");
+                    System.out.println(estacionPrincipal.toString());
+                    System.out.println("");
                     break;
                 case 5:
+                    System.out.println("");
+                    System.out.println("--- Recaudacion actual ---");
+                    System.out.println("La recaudación total hasta el momento es: $" + estacionPrincipal.getRecaudacionTotal());
+                    System.out.println("");
                     break;
                 case 6:
-                    System.out.println("Cerrando operaciones...");
+                    System.out.println("");
+                    System.out.println("--- Cierre de operaciones ---");
+                    System.out.println("Resumen final de la jornada:");
+                    System.out.println(" -> Estación: " + estacionPrincipal.getCodigoIdentificacion());
+                    System.out.println(" -> Administrador: " + estacionPrincipal.getDueno());
+                    System.out.println(" -> Ciudadanos en andén al cierre: " + estacionPrincipal.getCiudadanos());
+                    System.out.println(" -> Estado del aforo: " + estacionPrincipal.LimiteDePersonas());
+                    System.out.println("Cerrando operaciones... ¡Hasta pronto!");
+                    System.out.println("");
                     break;
                     
                 default:
