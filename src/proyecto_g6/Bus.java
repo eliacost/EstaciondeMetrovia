@@ -9,13 +9,12 @@ public abstract class Bus implements ISistemaEstacion {
     protected  int pasajeros;
     protected int capacidadMaxima;
     
-    public Bus(String placa, int numero, String marca, String conductor, int pasajeros,int capacidadMaxima) {
+    public Bus(String placa, int numero, String marca, String conductor, int pasajeros) {
         this.placa = placa;
         this.numero = numero;
         this.marca = marca;
         this.conductor = conductor;
         this.pasajeros = pasajeros;
-        this.capacidadMaxima = capacidadMaxima;
     }
 
     public String getPlaca() {
