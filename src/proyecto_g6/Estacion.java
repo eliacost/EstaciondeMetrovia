@@ -1,7 +1,10 @@
 package proyecto_g6;
+<<<<<<< HEAD
 
 
 import java.util.ArrayList;
+=======
+>>>>>>> d28929e4f39a9a17910cea9c9b90de3aaaaabf6f
 
 public class Estacion implements ISistemaEstacion{
     private String codigoIdentificacion;

@@ -1,4 +1,8 @@
 
+<<<<<<< HEAD
+=======
+package proyecto_g6;
+>>>>>>> d28929e4f39a9a17910cea9c9b90de3aaaaabf6f
 
 package proyecto_g6;
 
