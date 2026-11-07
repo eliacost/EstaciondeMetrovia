@@ -1,5 +1,4 @@
-
-package javaapplication22;
+package proyecto_g6;
 
 
 import java.util.ArrayList;
@@ -8,11 +7,8 @@ public class Estacion implements ISistemaEstacion{
     private String codigoIdentificacion;
     private String dueno;
     private int ciudadanos;
-<<<<<<< HEAD
     private ArrayList<Bus> listaBuses=new ArrayList<>();
-=======
     private int capacidadMaxima;
->>>>>>> e4e5ac17f61da2bbb107c0ac15972d0a337b8e02
 
     public Estacion(String codigoIdentificacion, String dueno, int ciudadanos, int capacidadMaxima) {
         this.codigoIdentificacion = codigoIdentificacion;
@@ -70,7 +66,6 @@ public class Estacion implements ISistemaEstacion{
         }
 
     }
-<<<<<<< HEAD
     
     public void abordarBus(Bus bus) { 
     int espacioDisponible = bus.capacidadMaxima - bus.getPasajeros();
@@ -105,8 +100,6 @@ public class Estacion implements ISistemaEstacion{
     System.out.println("Ciudadanos restantes en la estación: " + getCiudadanos());
     System.out.println("");
 }
-=======
->>>>>>> e4e5ac17f61da2bbb107c0ac15972d0a337b8e02
 
     @Override
     public String toString(){

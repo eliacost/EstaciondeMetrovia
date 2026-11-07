@@ -7,7 +7,7 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        Estacion estacionPrincipal = new Estacion("EST-CENTRAL", "Municipio de Guayaquil", 200);
+        Estacion estacionPrincipal = new Estacion("E001","EST-CENTRAL", 100, 200);
 
         int opcion = 0; 
         
@@ -151,11 +151,11 @@ public class Main {
             
         } while (opcion !=  6);
 
-<<<<<<< HEAD
+sc.close();
 
     }
 
-=======
+
     }  
->>>>>>> e4e5ac17f61da2bbb107c0ac15972d0a337b8e02
-}
+
+

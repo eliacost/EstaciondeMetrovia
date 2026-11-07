@@ -1,5 +1,5 @@
 
-<<<<<<< HEAD
+
 package proyecto_g6;
 
 public abstract class Bus implements ISistemaEstacion {
@@ -12,25 +12,11 @@ public abstract class Bus implements ISistemaEstacion {
     protected int capacidadMaxima;
     
     public Bus(String placa, int numero, String marca, String conductor, int pasajeros) {
-=======
-package javaapplication22;
-
-abstract class Bus implements ISistemaEstacion{
-    private String placa;
-    private int numero;
-    private String marca;
-    private String conductor;
-    private int pasajeros;
-    private int capacidadMaxima;
-
-    public Bus(String placa, int numero, String marca, String conductor, int pasajeros, int capacidadMaxima) {
->>>>>>> e4e5ac17f61da2bbb107c0ac15972d0a337b8e02
         this.placa = placa;
         this.numero = numero;
         this.marca = marca;
         this.conductor = conductor;
         this.pasajeros = pasajeros;
-        this.capacidadMaxima = capacidadMaxima;
     }
 
     public String getPlaca() {
@@ -77,9 +63,7 @@ abstract class Bus implements ISistemaEstacion{
         this.pasajeros = pasajeros;
     }
 
-<<<<<<< HEAD
-    
-=======
+
     public void setCapacidadMaxima(int capacidadMaxima) {
         this.capacidadMaxima = capacidadMaxima;
     }
@@ -95,7 +79,6 @@ abstract class Bus implements ISistemaEstacion{
             return "El bus se encuentra trabajando en perfecto estado";
         }
     }
->>>>>>> e4e5ac17f61da2bbb107c0ac15972d0a337b8e02
     
     @Override
     public String toString(){
