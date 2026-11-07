@@ -45,7 +45,7 @@ public class Main {
 
                     System.out.print("Ingrese la cantidad de pasajeros actuales: ");
                     int pasajeros = sc.nextInt();
-                    System.out.println("Elija el tipo de Bus a registrar (ingrese el número de la opción):");
+                    System.out.println("Elija el tipo de Bus a registrar (ingrese el numero de la opcion):");
                     System.out.println("1. Bus Articulado");
                     System.out.println("2. Bus Alimentador");
                     int tipoBus = sc.nextInt();
@@ -59,7 +59,7 @@ public class Main {
                         nuevoBus = new BusAlimentador(placa, numero, marca, conductor, pasajeros);
                         estacionPrincipal.agregarBus(nuevoBus);
                     } else {
-                        System.out.println("Ingrese una opción correcta");
+                        System.out.println("Ingrese una opcion correcta");
                     }
     
                     System.out.println("");
@@ -149,23 +149,23 @@ public class Main {
                 case 4:
 		    System.out.println("");
                     System.out.println("--- Listado actual de buses registrados ---");
-                    System.out.println("Estado general de la estación:");
+                    System.out.println("Estado general de la estacion:");
                     System.out.println(estacionPrincipal.toString());
                     System.out.println("");
                     break;
                 case 5:
                     System.out.println("");
                     System.out.println("--- Recaudacion actual ---");
-                    System.out.println("La recaudación total hasta el momento es: $" + estacionPrincipal.getRecaudacionTotal());
+                    System.out.println("La recaudacion total hasta el momento es: $" + estacionPrincipal.getRecaudacionTotal());
                     System.out.println("");
                     break;
                 case 6:
                     System.out.println("");
                     System.out.println("--- Cierre de operaciones ---");
                     System.out.println("Resumen final de la jornada:");
-                    System.out.println(" -> Estación: " + estacionPrincipal.getCodigoIdentificacion());
+                    System.out.println(" -> Estacion: " + estacionPrincipal.getCodigoIdentificacion());
                     System.out.println(" -> Administrador: " + estacionPrincipal.getDueno());
-                    System.out.println(" -> Ciudadanos en andén al cierre: " + estacionPrincipal.getCiudadanos());
+                    System.out.println(" -> Ciudadanos en la estacion al cierre: " + estacionPrincipal.getCiudadanos());
                     System.out.println(" -> Estado del aforo: " + estacionPrincipal.LimiteDePersonas());
                     System.out.println("Cerrando operaciones... ¡Hasta pronto!");
                     System.out.println("");

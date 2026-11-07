@@ -70,7 +70,7 @@ public class Estacion implements ISistemaEstacion{
 
         }
         else{
-            return "El bus se encuentra trabajando en perfecto estado";
+            return "No existe aglomeracion en la estacion";
 
         }
 
@@ -80,14 +80,14 @@ public class Estacion implements ISistemaEstacion{
     int espacioDisponible = bus.capacidadMaxima - bus.getPasajeros();
 
     if (espacioDisponible <= 0) {
-        System.out.println("El bus: " + bus.getNumero() + " está lleno. Ningún ciudadano del andén puede abordar.");
+        System.out.println("El bus: " + bus.getNumero() + " esta lleno. Ningun ciudadano de la estacion puede abordar.");
         return; 
     }
 
     int ciudadanosEnEstacion = getCiudadanos();
 
     if (ciudadanosEnEstacion <= 0) {
-        System.out.println("El andén está vacío. Nadie abordó el bus.");
+        System.out.println("La estacion esta vacia. Nadie abordo el bus.");
         return;
     }
 
@@ -106,7 +106,7 @@ public class Estacion implements ISistemaEstacion{
     System.out.println("");
     System.out.println("--- REPORTE DE ABORDAJE ---");
     System.out.println("Han abordado " + personasQueAbordan + " pasajeros al bus #" + bus.getNumero() + ".");
-    System.out.println("Ciudadanos restantes en la estación: " + getCiudadanos());
+    System.out.println("Ciudadanos restantes en la estacion: " + getCiudadanos());
     System.out.println("");
 }
 
