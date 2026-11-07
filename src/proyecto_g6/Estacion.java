@@ -42,6 +42,10 @@ public class Estacion implements ISistemaEstacion{
     public void setCodigoIdentificacion(String codigoIdentificacion) {
         this.codigoIdentificacion = codigoIdentificacion;
     }
+    
+    public ArrayList<Bus> getListaBuses() {
+    return listaBuses;
+    }
 
     public void setDueno(String dueno) {
         this.dueno = dueno;
@@ -70,7 +74,7 @@ public class Estacion implements ISistemaEstacion{
 
         }
         else{
-            return "No existe aglomeracion en la estacion";
+            return "El bus se encuentra trabajando en perfecto estado";
 
         }
 
@@ -80,7 +84,7 @@ public class Estacion implements ISistemaEstacion{
     int espacioDisponible = bus.capacidadMaxima - bus.getPasajeros();
 
     if (espacioDisponible <= 0) {
-        System.out.println("El bus: " + bus.getNumero() + " esta lleno. Ningun ciudadano de la estacion puede abordar.");
+        System.out.println("El bus: " + bus.getNumero() + " esta lleno. Ningun ciudadano del anden puede abordar.");
         return; 
     }
 
@@ -115,7 +119,7 @@ public class Estacion implements ISistemaEstacion{
         return "Estacion [Identificacion: " + codigoIdentificacion + 
                ", Dueno del local: " + dueno + 
                ", Cantidad de ciudadanos " + ciudadanos + 
-               ", Capacidad de ciudadnos: " + capacidadMaxima +
+               ", Capacidad de ciudadanos: " + capacidadMaxima +
                ", Estado de la estacion " + LimiteDePersonas() + "]";
     }
   

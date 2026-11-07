@@ -45,7 +45,7 @@ public class Main {
 
                     System.out.print("Ingrese la cantidad de pasajeros actuales: ");
                     int pasajeros = sc.nextInt();
-                    System.out.println("Elija el tipo de Bus a registrar (ingrese el numero de la opcion):");
+                    System.out.println("Elija el tipo de Bus a registrar (Ingrese el numero de la opcion):");
                     System.out.println("1. Bus Articulado");
                     System.out.println("2. Bus Alimentador");
                     int tipoBus = sc.nextInt();
@@ -149,6 +149,14 @@ public class Main {
                 case 4:
 		    System.out.println("");
                     System.out.println("--- Listado actual de buses registrados ---");
+		    if (estacionPrincipal.getListaBuses().isEmpty()) {
+                        System.out.println("Aun no hay buses registrados en la estacion.");
+                    } else {
+                        for (Bus b : estacionPrincipal.getListaBuses()) {
+                            System.out.println(b.toString());
+                        }
+                    }
+
                     System.out.println("Estado general de la estacion:");
                     System.out.println(estacionPrincipal.toString());
                     System.out.println("");
@@ -165,9 +173,9 @@ public class Main {
                     System.out.println("Resumen final de la jornada:");
                     System.out.println(" -> Estacion: " + estacionPrincipal.getCodigoIdentificacion());
                     System.out.println(" -> Administrador: " + estacionPrincipal.getDueno());
-                    System.out.println(" -> Ciudadanos en la estacion al cierre: " + estacionPrincipal.getCiudadanos());
+                    System.out.println(" -> Ciudadanos en anden al cierre: " + estacionPrincipal.getCiudadanos());
                     System.out.println(" -> Estado del aforo: " + estacionPrincipal.LimiteDePersonas());
-                    System.out.println("Cerrando operaciones... ¡Hasta pronto!");
+                    System.out.println("Cerrando operaciones... Hasta pronto!");
                     System.out.println("");
                     break;
                     
