@@ -1,4 +1,3 @@
-
 package proyecto_g6;
 
 import java.util.Scanner;
@@ -7,7 +6,7 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        Estacion estacionPrincipal = new Estacion("E001","EST-CENTRAL", 100, 200);
+        Estacion estacionPrincipal = new Estacion("EST-CENTRAL", "Municipio de Guayaquil", 0, 200);
 
         int opcion = 0; 
         
@@ -15,13 +14,13 @@ public class Main {
             System.out.println("=======================================================");
             System.out.println("     SISTEMA DE CONTROL DE ESTACION DE METROVIA       ");
             System.out.println("=======================================================");
-            System.out.println("                 ++ Menu Principal  ++                     ");
-            System.out.println(" 1. Registrar unidad de transporte");
-            System.out.println(" 2. Registrar ingreso de pasajero");
-            System.out.println(" 3. Aforo actual en la estacion");
-            System.out.println(" 4. Listado actual de buses registrados");
-            System.out.println(" 5. Recaudacion actual");
-            System.out.println(" 6. Cierre de operaciones");
+            System.out.println("                ++ Menu Principal  ++                  ");
+            System.out.println("1. Registrar unidad de transporte");
+            System.out.println("2. Registrar ingreso de pasajero");
+            System.out.println("3. Aforo actual en la estacion");
+            System.out.println("4. Listado actual de buses registrados");
+            System.out.println("5. Recaudacion actual");
+            System.out.println("6. Cierre de operaciones");
             System.out.print("Seleccione una opcion [1-6]: ");
         
             opcion = sc.nextInt();
@@ -46,37 +45,39 @@ public class Main {
 
                     System.out.print("Ingrese la cantidad de pasajeros actuales: ");
                     int pasajeros = sc.nextInt();
-                    System.out.println("Elija el tipo de Bus a registrar(ingrese el número de la opción)");
-	                System.out.println("1. Bus Articulado \n2. Bus Alimentador");
+                    System.out.println("Elija el tipo de Bus a registrar (ingrese el número de la opción):");
+                    System.out.println("1. Bus Articulado");
+                    System.out.println("2. Bus Alimentador");
                     int tipoBus = sc.nextInt();
                     sc.nextLine();
-                    Bus nuevoBus=null;
+                    
+                    Bus nuevoBus = null;
                     if(tipoBus == 1){
-                        nuevoBus=new BusArticulado(placa,numero,marca,conductor,pasajeros);
+                        nuevoBus = new BusArticulado(placa, numero, marca, conductor, pasajeros);
                         estacionPrincipal.agregarBus(nuevoBus);
-                    }else if (tipoBus==2){
-                        nuevoBus=new BusAlimentador(placa,numero,marca,conductor,pasajeros);
+                    } else if(tipoBus == 2){
+                        nuevoBus = new BusAlimentador(placa, numero, marca, conductor, pasajeros);
                         estacionPrincipal.agregarBus(nuevoBus);
-                    }else{
+                    } else {
                         System.out.println("Ingrese una opción correcta");
                     }
     
                     System.out.println("");
                     System.out.println("Bus registrado con exito!");
                     
-                    
-                    String estadoBus = nuevoBus.LimiteDePersonas();
-                    if (estadoBus.contains("excedido")) {
-                        System.out.println("");
-                        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-                        System.out.println("En el bus " + nuevoBus.getNumero() + ": " + estadoBus);
-                        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-                        System.out.println("");
-                    } else {
-                        System.out.println("Estado del bus: " + estadoBus);
+                    if (nuevoBus != null) {
+                        String estadoBus = nuevoBus.LimiteDePersonas();
+                        if (estadoBus.contains("excedido")) {
+                            System.out.println("");
+                            System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                            System.out.println("En el bus " + nuevoBus.getNumero() + ": " + estadoBus);
+                            System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                            System.out.println("");
+                        } else {
+                            System.out.println("Estado del bus: " + estadoBus);
+                        }
+                        estacionPrincipal.abordarBus(nuevoBus);
                     }
-                    
-                    estacionPrincipal.abordarBus(nuevoBus);
                     break;
                     
                 case 2:
@@ -87,9 +88,9 @@ public class Main {
                     System.out.println("3. Estudiante");
                     System.out.println("4. Mayor de Edad");
                     System.out.println("5. No vidente");
-                    System.out.println("Seleccione el tipo de usuario [1-5]:");
+                    System.out.print("Seleccione el tipo de usuario [1-5]: ");
                     int tipo = sc.nextInt();
-                    System.out.println("Inscriba el codigo de la tarjeta: ");
+                    System.out.print("Inscriba el codigo de la tarjeta: ");
                     sc.nextLine();
                     String id = sc.nextLine();
                     
@@ -99,8 +100,8 @@ public class Main {
                             usuario = new UsuarioGeneral(id);
                             break;
                         case 2: 
-                           usuario = new UsuarioApoyoMunicipal(id);
-                           break;
+                            usuario = new UsuarioApoyoMunicipal(id);
+                            break;
                         case 3:
                             usuario = new UsuarioEstudiante(id);
                             break;
@@ -111,8 +112,8 @@ public class Main {
                             usuario = new UsuarioNoVidente(id);
                             break;
                         default:
-                           System.out.println("Opcion no valida"); 
-                           break;
+                            System.out.println("Opcion no valida"); 
+                            break;
                     }
                     
                     if (usuario != null) {
@@ -128,7 +129,8 @@ public class Main {
                             System.out.println("");
                         }
                     }
-                break;
+                    break;
+                    
                 case 3:
                     System.out.println("");
                     System.out.println("--- Aforo actual ---");
@@ -138,24 +140,20 @@ public class Main {
                     System.out.println("Estado del aforo: " + estacionPrincipal.LimiteDePersonas());
                     System.out.println("");
                     break;
+                    
                 case 4:
                     break;
                 case 5:
                     break;
                 case 6:
+                    System.out.println("Cerrando operaciones...");
                     break;
+                    
                 default:
                     System.out.println("Opcion no valida.");
                     break;
             }
             
-        } while (opcion !=  6);
-
-sc.close();
-
+        } while (opcion != 6);
     }
-
-
-    }  
-
-
+}
